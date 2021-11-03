@@ -1,0 +1,5 @@
+version: '3.8'
+services:
+  the_watcher:
+    image: 868884350453.dkr.ecr.us-east-1.amazonaws.com/team-data-capture/the-watcher-bot:${TAG}
+    build: .
