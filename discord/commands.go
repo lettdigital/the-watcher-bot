@@ -6,8 +6,8 @@ import (
 	"github.com/enescakir/emoji"
 	"hash/fnv"
 	"log"
-	"the-watcher/models"
-	"the-watcher/param"
+	"the-watcher-bot/models"
+	"the-watcher-bot/param"
 	"time"
 )
 

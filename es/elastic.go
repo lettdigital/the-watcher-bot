@@ -6,8 +6,8 @@
 		elastic "github.com/olivere/elastic/v7"
 		"log"
 		"strings"
-		"the-watcher/models"
-		"the-watcher/param"
+		"the-watcher-bot/models"
+		"the-watcher-bot/param"
 	)
 
 	var (
@@ -15,8 +15,8 @@
 	)
 
 	func Connection() (*elastic.Client, error) {
-		client, err :=  elastic.NewClient(elastic.SetURL(HOST),
-			elastic.SetSniff(false),
+		client, err := elastic.NewClient(elastic.SetURL(HOST),
+			elastic.SetSniff(true),
 			elastic.SetHealthcheck(false))
 
 		if err != nil {

@@ -3,9 +3,9 @@ package main
 import (
 	"context"
 	"log"
-	"the-watcher/discord"
-	"the-watcher/es"
-	"the-watcher/param"
+	"the-watcher-bot/discord"
+	"the-watcher-bot/es"
+	"the-watcher-bot/param"
 	"time"
 )
 
