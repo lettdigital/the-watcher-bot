@@ -88,14 +88,6 @@ func mountMessage(m models.Message) *discordgo.MessageEmbed{
 	return discordMessage
 }
 
-/*
-func checkBeforeSend(message models.Message){
-	newhash := generatehash(message.Msg + message.TimeStamp.String())
-
-
-
-}
-*/
 
 func find(slice []uint32, val uint32) (int, bool) {
 	for i, hash := range slice {
