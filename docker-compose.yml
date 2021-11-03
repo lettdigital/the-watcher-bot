@@ -1,6 +1,7 @@
 version: '3.8'
 services:
   the_watcher:
+    image: ""
     container_name: the_watcher
     restart: unless-stopped
     build:
