@@ -16,7 +16,7 @@
 
 	func Connection() (*elastic.Client, error) {
 		client, err := elastic.NewClient(elastic.SetURL(HOST),
-			elastic.SetSniff(true),
+			elastic.SetSniff(false),
 			elastic.SetHealthcheck(false))
 
 		if err != nil {
@@ -41,9 +41,9 @@
 
 			for _,  target := range strings.Split(targets, ",") {
 
-				applicationMatch := elastic.NewMatchQuery("application", application)
-				targetMatch := elastic.NewMatchQuery("msg", target)
-				level := elastic.NewMatchQuery("level", LEVEL)
+				applicationMatch := elastic.NewMatchPhraseQuery("application", application)
+				targetMatch := elastic.NewMatchPhraseQuery("msg", target)
+				level := elastic.NewMatchPhraseQuery("level", LEVEL)
 
 
 				timeStamp := elastic.NewRangeQuery("@timestamp")
@@ -52,7 +52,7 @@
 				timeStamp.TimeZone("UTC")
 
 
-				query := elastic.NewBoolQuery().Must(applicationMatch,targetMatch,level).Filter(timeStamp)
+				query := elastic.NewBoolQuery().Filter(applicationMatch,targetMatch,level).Filter(timeStamp)
 
 				searchResult, err := client.Search().
 					Index(INDEX).
