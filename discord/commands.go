@@ -11,9 +11,8 @@ import (
 	"time"
 )
 
-var (
-	DISCORD_TOKEN, CHANNEL_ID, SQUAD_NAME = param.GetDiscordEnvs()
-)
+var	DISCORD_TOKEN, CHANNEL_ID, SQUAD_NAME = param.GetDiscordEnvs()
+
 
 var BotId string
 var hashInMemory []uint32
@@ -70,8 +69,9 @@ func addOnListOfHashsAndSendToDiscord(s *discordgo.Session,message []models.Mess
 	}
 
 	if listLengh == len(hashInMemory){
+		time.Local, _ = time.LoadLocation("America/Sao_Paulo")
 		hour,min,sec := time.Now().Clock()
-			log.Printf("No new ERROR identified | timeStamp - %v:%v:%v",hour,min,sec)
+		log.Printf("No new ERROR identified | timeStamp - %v:%v:%v",hour,min,sec)
 	}
 }
 

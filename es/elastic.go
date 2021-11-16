@@ -49,7 +49,7 @@
 				timeStamp := elastic.NewRangeQuery("@timestamp")
 				timeStamp.Gte(QUERYRANGE)
 				timeStamp.Lte("now")
-				timeStamp.TimeZone("UTC")
+				timeStamp.TimeZone("America/Sao_Paulo")
 
 
 				query := elastic.NewBoolQuery().Filter(applicationMatch,targetMatch,level).Filter(timeStamp)
